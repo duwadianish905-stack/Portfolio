@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Learn about JavaScript - the programming language of the web. Explore JavaScript syntax, features, frameworks, and how it powers interactive web applications."/>
+    <meta name="Keywords" content="JavaScript, JS, ECMAScript, web development, frontend development, programming, interactive websites">
+    <meta name="author" content="Anish Duwadi">
+    <meta name="copyright" content="Copyright © 2025" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!-- favicon for portfolio -->
+    <link rel="shortcut icon" href="/favicon.PNG" type="image/x-icon">
+    <title>JavaScript - Portfolio</title>
+    <style>
+      :root {
+        --main-gradient: linear-gradient(135deg, #f1d84a 0%, #ba98df 100%); /* yellow to purple */
+        --accent: #f9d923;
+        --card-bg: #f8f6ff;
+        --card-shadow: 0 8px 32px 0 rgba(106, 17, 203, 0.10);
+        --border-radius: 18px;
+        --btn-radius: 30px;
+      }
+
+      body {
+        background: var(--main-gradient);
+        min-height: 100vh;
+        color: #3a1a5d;
+      }
+
+      .js-feature-card {
+        background: var(--card-bg);
+        border-radius: var(--border-radius);
+        box-shadow: var(--card-shadow);
+        border: none;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .js-feature-card:hover {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 16px 40px 0 rgba(249, 217, 35, 0.18);
+      }
+      .code-example {
+        background: #fefbe9;
+        border-left: 5px solid var(--accent);
+        padding: 18px;
+        font-family: 'Fira Mono', monospace;
+        margin: 24px 0;
+        border-radius: 10px;
+        color: #6a11cb;
+      }
+      .js-property-table th {
+        background: var(--main-gradient);
+        color: #fff;
+        border-bottom: 3px solid #6a11cb;
+      }
+      .interactive-demo {
+        background: rgba(249, 217, 35, 0.08);
+        padding: 20px;
+        border-radius: 14px;
+        margin: 20px 0;
+        box-shadow: 0 5px 15px rgba(249, 217, 35, 0.05);
+      }
+      .top-move {
+        position: fixed;
+        right: 19px;
+        z-index: 100;
+        text-align: center;
+        bottom: 48px;
+        background: var(--main-gradient);
+        padding: 5px;
+        border-radius: 50%;
+        height: 60px;
+        width: 60px;
+        box-shadow: 0 5px 15px rgba(249, 217, 35, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+      .top-move a {
+        color: #fff;
+      }
+      .top-move a i {
+        padding-top: 7px;
+        font-size: 3rem;
+      }
+      .nav-link.active {
+        font-weight: bold;
+        text-decoration: underline;
+        color: #6a11cb !important;
+      }
+      .nav-link:hover {
+        color: #f9d923 !important;
+        background: rgba(249, 217, 35, 0.10);
+      }
+      .btn-outline-warning {
+        color: #6a11cb;
+        border-color: #f9d923;
+        background: transparent;
+        font-weight: 500;
+        border-width: 2px;
+        border-radius: var(--btn-radius);
+        transition: all 0.3s ease;
+      }
+      .btn-outline-warning:hover {
+        background: #f9d923;
+        color: #6a11cb;
+        border-color: #f9d923;
+        box-shadow: 0 5px 15px rgba(249, 217, 35, 0.15);
+      }
+      .framework-logo {
+        height: 40px;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+<body>
+<a id="top"></a>
+<!-- navbar start -->
+ <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background: var(--primary-gradient) !important; box-shadow: 0 2px 15px rgba(0,0,0,0.12);">
+   <div class="container-fluid">
+     <a class="navbar-brand fs-4 fw-bold" href="#">
+      <img src="assets/images/logo.webp" alt="" width="70px" class="rounded-3">
+      Portfolio</a>
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         <li class="nav-item">
+           <a class="nav-link" aria-current="page" href="index.html">Home</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="fullstack.html">What is full stack?</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="html.html">HTML</a>
+         </li>
+          <li class="nav-item">
+           <a class="nav-link" href="css.html">CSS</a>
+         </li>
+          <li class="nav-item">
+           <a class="nav-link active" href="js.html">Javascript</a>
+         </li>
+          <li class="nav-item">
+           <a class="nav-link" href="bs.html">Bootstrap</a>
+         </li>
+        <!-- end -->
+       </ul>
+       <form class="d-flex">
+  <!-- Login and Register buttons removed -->
+       </form>
+     </div>
+   </div>
+ </nav>
+<!-- navbar end -->
+<!-- title start -->
+ <div class="container-fluid py-5 text-light" style="margin-top: 80px; background: var(--primary-gradient);">
+    <h1 class="display-5 fw-bold text-center">JavaScript</h1>
+    <p class="text-center fs-5">The programming language that powers interactive web experiences</p>
+ </div>
+<!-- title end -->
+<!--content start-->
+<div class="container py-5 my-5" style="background: var(--card-gradient); border-radius: 18px; box-shadow: 0 10px 30px rgba(17,153,142,0.08);">
+  <div class="row">
+    <div class="col-lg-8">
+      <h2 class="mb-4">What is JavaScript?</h2>
+      <p>JavaScript is a high-level, interpreted programming language that conforms to the ECMAScript specification. It is a language that is also characterized as dynamic, weakly typed, prototype-based and multi-paradigm.</p>
+      <p>Alongside HTML and CSS, JavaScript is one of the core technologies of the World Wide Web. JavaScript enables interactive web pages and is an essential part of web applications. The vast majority of websites use it, and major web browsers have a dedicated JavaScript engine to execute it.</p>
+      
+      <h3 class="mt-5">JavaScript Basics</h3>
+      <p>JavaScript syntax is the set of rules that define a correctly structured JavaScript program.</p>
+      
+      <div class="code-example">
+        // Variables<br>
+        let message = "Hello, World!";<br>
+        const pi = 3.14159;<br>
+        var count = 10;<br><br>
+        
+        // Functions<br>
+        function greet(name) {<br>
+        &nbsp;&nbsp;return "Hello, " + name + "!";<br>
+        }<br><br>
+        
+        // Output<br>
+        console.log(greet("JavaScript Developer"));<br>
+      </div>
+      
+      <h3 class="mt-5">JavaScript Data Types</h3>
+      <p>JavaScript is a dynamically typed language, which means you don't have to specify the data type of a variable when you declare it.</p>
+      
+      <table class="table table-bordered js-property-table">
+        <thead>
+          <tr>
+            <th>Data Type</th>
+            <th>Description</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>String</td>
+            <td>Textual data</td>
+            <td>"Hello World", 'JavaScript'</td>
+          </tr>
+          <tr>
+            <td>Number</td>
+            <td>Integer or floating point numbers</td>
+            <td>42, 3.14</td>
+          </tr>
+          <tr>
+            <td>Boolean</td>
+            <td>True or false</td>
+            <td>true, false</td>
+          </tr>
+          <tr>
+            <td>Array</td>
+            <td>Ordered list of values</td>
+            <td>[1, 2, 3], ['a', 'b', 'c']</td>
+          </tr>
+          <tr>
+            <td>Object</td>
+            <td>Key-value pairs</td>
+            <td>{name: 'John', age: 30}</td>
+          </tr>
+          <tr>
+            <td>Null</td>
+            <td>Intentional absence of value</td>
+            <td>null</td>
+          </tr>
+          <tr>
+            <td>Undefined</td>
+            <td>Unintentional absence of value</td>
+            <td>undefined</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3 class="mt-5">JavaScript in the Browser</h3>
+      <p>JavaScript can manipulate the Document Object Model (DOM) to change document structure, style, and content.</p>
+      
+      <div class="code-example">
+        // Changing HTML content<br>
+        document.getElementById("demo").innerHTML = "Hello JavaScript!";<br><br>
+        
+        // Changing CSS styles<br>
+        document.getElementById("demo").style.color = "red";<br><br>
+        
+        // Handling events<br>
+        document.getElementById("myBtn").onclick = function() {<br>
+        &nbsp;&nbsp;alert("Button clicked!");<br>
+        };<br>
+      </div>
+      
+      <div class="interactive-demo">
+        <h4>Try It Out</h4>
+        <p id="demo-text">Click the button to change this text.</p>
+        <button id="demo-button" class="btn btn-primary">Click Me!</button>
+        <button id="color-button" class="btn btn-success">Change Color</button>
+        <button id="reset-button" class="btn btn-secondary">Reset</button>
+      </div>
+      
+      <h3 class="mt-5">Modern JavaScript (ES6+)</h3>
+      <p>ECMAScript 2015 (ES6) introduced significant updates to JavaScript:</p>
+      <ul>
+        <li>Arrow functions: <code>() => {}</code></li>
+        <li>Classes: <code>class MyClass {}</code></li>
+        <li>Modules: <code>import/export</code></li>
+        <li>Template literals: <code>`Hello ${name}`</code></li>
+        <li>Destructuring: <code>const {prop} = object</code></li>
+        <li>Promises and async/await for asynchronous operations</li>
+        <li>let and const for block-scoped variables</li>
+      </ul>
+    </div>
+    
+    <div class="col-lg-4">
+      <div class="card mb-4 js-feature-card">
+        <div class="card-body">
+          <h5 class="card-title"><i class="fas fa-code me-2"></i> JavaScript Features</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Client-side form validation</li>
+            <li class="list-group-item">Dynamic content updates</li>
+            <li class="list-group-item">Interactive effects and animations</li>
+            <li class="list-group-item">API communication (AJAX, Fetch)</li>
+            <li class="list-group-item">Browser storage (Cookies, LocalStorage)</li>
+            <li class="list-group-item">Asynchronous programming</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="card mb-4 js-feature-card">
+        <div class="card-body">
+          <h5 class="card-title"><i class="fas fa-cogs me-2"></i> JavaScript Example</h5>
+          <div class="code-example">
+            // Calculate factorial<br>
+            function factorial(n) {<br>
+            &nbsp;&nbsp;if (n === 0 || n === 1) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return 1;<br>
+            &nbsp;&nbsp;} else {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return n * factorial(n - 1);<br>
+            &nbsp;&nbsp;}<br>
+            }<br><br>
+            
+            // Array manipulation<br>
+            const numbers = [1, 2, 3, 4, 5];<br>
+            const squares = numbers.map(x => x * x);<br>
+            console.log(squares); // [1, 4, 9, 16, 25]<br><br>
+            
+            // Fetch API example<br>
+            fetch('https://api.example.com/data')<br>
+            &nbsp;&nbsp;.then(response => response.json())<br>
+            &nbsp;&nbsp;.then(data => console.log(data))<br>
+            &nbsp;&nbsp;.catch(error => console.error('Error:', error));<br>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-4 js-feature-card">
+        <div class="card-body">
+          <h5 class="card-title"><i class="fas fa-history me-2"></i> JavaScript Timeline</h5>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">1995 - Created by Brendan Eich at Netscape</li>
+            <li class="list-group-item">1997 - ECMAScript 1 (First standardization)</li>
+            <li class="list-group-item">2009 - ECMAScript 5 (Major enhancements)</li>
+            <li class="list-group-item">2015 - ECMAScript 6 (Modern JavaScript)</li>
+            <li class="list-group-item">Annual releases since 2015 (ES2016, ES2017, etc.)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row mt-5">
+    <div class="col-12">
+      <h3>JavaScript Ecosystem</h3>
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="card h-100 js-feature-card">
+            <div class="card-body">
+              <h5 class="card-title">Frontend Frameworks</h5>
+              <p>JavaScript frameworks for building user interfaces:</p>
+              <ul class="list-unstyled">
+                <li><i class="fab fa-react framework-logo"></i> React</li>
+                <li><i class="fab fa-angular framework-logo"></i> Angular</li>
+                <li><i class="fab fa-vuejs framework-logo"></i> Vue.js</li>
+                <li><i class="fab fa-js framework-logo"></i> Svelte</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card h-100 js-feature-card">
+            <div class="card-body">
+              <h5 class="card-title">Backend Runtime</h5>
+              <p>JavaScript beyond the browser:</p>
+              <ul class="list-unstyled">
+                <li><i class="fab fa-node-js framework-logo"></i> Node.js</li>
+                <li><i class="fas fa-server framework-logo"></i> Express.js</li>
+                <li><i class="fas fa-database framework-logo"></i> MongoDB with Mongoose</li>
+                <li><i class="fas fa-bolt framework-logo"></i> Real-time applications with Socket.io</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="card js-feature-card">
+        <div class="card-body">
+          <h5 class="card-title">JavaScript in Full Stack Development</h5>
+          <p>JavaScript plays a crucial role in modern full stack development:</p>
+          <div class="row">
+            <div class="col-md-6">
+              <h6>Frontend (Client-side)</h6>
+              <ul>
+                <li>DOM manipulation</li>
+                <li>Event handling</li>
+                <li>API communication</li>
+                <li>Single Page Applications (SPAs)</li>
+                <li>Progressive Web Apps (PWAs)</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h6>Backend (Server-side)</h6>
+              <ul>
+                <li>Server creation and management</li>
+                <li>Database operations</li>
+                <li>Authentication and authorization</li>
+                <li>RESTful API development</li>
+                <li>Real-time communication</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--content end-->
+<!-- Footer -->
+<footer class="page-footer font-small indigo">
+  <!-- Footer Links -->
+  <div class="container-fluid" style="background: var(--bootstrap-gradient); color: var(--text-light);">
+
+    <!-- Grid row-->
+    <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight-bold">
+          <a href="index.html" class="text-light">Home</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight-bold">
+          <a href="fullstack.html" class="text-light">What is full stack?</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight-bold">
+          <a href="css.html" class="text-light">CSS</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight-bold">
+          <a href="bs.html" class="text-light">Bootstrap</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3">
+        <h6 class="text-uppercase font-weight-bold">
+          <a href="js.html" class="text-light">Javascript</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+    <hr class="rgba-white-light" style="margin: 0 15%;">
+
+    <!-- Grid row-->
+    <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+
+      <!-- Grid column -->
+      <div class="col-md-8 col-12 mt-5">
+        <p style="line-height: 1.7rem">
+          All &copy; right reserved @ 2025 | Created with passion for web development education
+        </p>
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+    <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+    <!-- Grid row-->
+    <div class="row pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-12">
+
+        <div class="mb-5 text-center">
+
+          <!-- Facebook -->
+          <a class="fb-ic" href="#">
+            <i class="fab fa-facebook-f fa-lg white-text mr-4"> </i>
+          </a>
+          <!-- Twitter -->
+          <a class="tw-ic" href="#">
+            <i class="fab fa-twitter fa-lg white-text mr-4"> </i>
+          </a>
+          
+          <!--Linkedin -->
+          <a class="li-ic" href="#">
+            <i class="fab fa-linkedin-in fa-lg white-text mr-4"> </i>
+          </a>
+
+          <!--Instagram-->
+          <a class="ins-ic" href="#">
+            <i class="fab fa-instagram fa-lg white-text mr-4"> </i>
+          </a>
+         
+          <!--whatsapp-->
+          <a class="ins-ic" href="https://wa.me/9779846164663">
+            <i class="fab fa-whatsapp fa-lg white-text mr-4"> </i>
+          </a>
+        </div>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">Powered By:
+    <a href="#"> Anish</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+<div class="top-move" id="move-top">
+  <a href="#top"><i class="fa fa-angle-up fa-3x"></i></a>
+</div>
+<script>
+
+// Interactive demo functionality
+document.getElementById('demo-button').addEventListener('click', function() {
+  document.getElementById('demo-text').textContent = 'You clicked the button! JavaScript makes web pages interactive.';
+});
+
+document.getElementById('color-button').addEventListener('click', function() {
+  const colors = ['red', 'blue', 'green', 'purple', 'orange'];
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  document.getElementById('demo-text').style.color = randomColor;
+});
+
+document.getElementById('reset-button').addEventListener('click', function() {
+  document.getElementById('demo-text').textContent = 'Click the button to change this text.';
+  document.getElementById('demo-text').style.color = 'black';
+});
+</script>
+<!-- JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+</body>
+</html>

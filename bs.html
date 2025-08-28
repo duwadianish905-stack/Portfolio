@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Learn Bootstrap - the world's most popular front-end framework for building responsive, mobile-first websites with HTML, CSS, and JavaScript."/>
+    <meta name="Keywords" content="Bootstrap, CSS Framework, Responsive Design, Mobile-First, Web Development, Front-end Framework, HTML, CSS, JavaScript">
+    <meta name="author" content="Anish Duwadi">
+    <meta name="copyright" content="Copyright © 2025" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- favicon for portfolio -->
+    <link rel="shortcut icon" href="/favicon.PNG" type="image/x-icon">
+    <title>Bootstrap - Portfolio</title>
+    <style>
+      :root {
+  --primary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  --secondary-gradient: linear-gradient(135deg, #ffb347 0%, #6a11cb 100%);
+  --bootstrap-gradient: linear-gradient(135deg, #232526 0%, #6a11cb 100%);
+  --dark-bg: #181d27;
+  --light-bg: #f5f3f0;
+  --card-gradient: linear-gradient(145deg, #f7f7fa 0%, #e0d6ff 100%);
+  --text-dark: #3a1a5d;
+  --text-light: #f7fff7;
+      }
+      
+      body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-dark);
+  background: var(--light-bg);
+  min-height: 100vh;
+  overflow-x: hidden;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Roboto Slab', serif;
+        font-weight: 600;
+      }
+      
+      /* Navbar styling */
+      .navbar {
+        background: var(--primary-gradient) !important;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.12);
+        padding: 10px 0;
+      }
+      
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 1.8rem !important;
+      }
+      
+      .nav-link {
+        font-weight: 500;
+        margin: 0 5px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+      }
+      
+      .nav-link:hover {
+        background: rgba(56, 239, 125, 0.15);
+        color: #11998e !important;
+        transform: translateY(-2px);
+      }
+      
+      .nav-link.active {
+        background: rgba(255, 179, 71, 0.18);
+        color: #ffb347 !important;
+        font-weight: 600;
+      }
+      
+      .btn-outline-warning {
+  color: #6a11cb;
+  border-color: #6a11cb;
+  background: transparent;
+  font-weight: 500;
+  border-width: 2px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+      }
+
+      .btn-outline-warning:hover {
+  background: #6a11cb;
+  color: #fff;
+  border-color: #6a11cb;
+  box-shadow: 0 5px 15px rgba(106, 17, 203, 0.15);
+      }
+      
+      /* Page title section */
+      .page-title {
+        background: var(--primary-gradient);
+        border-radius: 15px;
+        margin-top: 100px;
+        padding: 40px;
+        color: #fff;
+        box-shadow: 0 15px 30px rgba(17, 153, 142, 0.12);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .page-title::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 100%;
+        height: 200%;
+        background: rgba(255, 255, 255, 0.05);
+        transform: rotate(45deg);
+        z-index: 1;
+      }
+      
+      .page-title h1 {
+        position: relative;
+        z-index: 2;
+        font-size: 3rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+      
+      /* Content section */
+      .content-section {
+        padding: 80px 0;
+      }
+      
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+        position: relative;
+      }
+      
+      .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--secondary-gradient);
+        border-radius: 2px;
+      }
+      
+      .info-card {
+  background: var(--card-gradient);
+  border-radius: 18px;
+  padding: 32px;
+  height: 100%;
+  box-shadow: 0 10px 32px 0 rgba(106, 17, 203, 0.10);
+  transition: all 0.3s ease;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 30px;
+      }
+      
+      .info-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--secondary-gradient);
+  transition: all 0.3s ease;
+      }
+      
+      .info-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 16px 40px 0 rgba(106, 17, 203, 0.18);
+      }
+      
+      .info-card:hover::before {
+  width: 100%;
+  opacity: 0.12;
+      }
+      
+      .info-card h2 {
+        color: #11998e;
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+      }
+      
+      .info-card h3 {
+        color: #ffb347;
+        margin: 25px 0 15px;
+        font-size: 1.4rem;
+      }
+      
+      .info-card p {
+        margin-bottom: 15px;
+        color: #555;
+      }
+      
+      .info-card ul, .info-card ol {
+        padding-left: 20px;
+        margin-bottom: 20px;
+      }
+      
+      .info-card ul li, .info-card ol li {
+        margin-bottom: 8px;
+        color: #555;
+      }
+      
+      .tech-pill {
+  display: inline-block;
+  background: var(--secondary-gradient);
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  margin: 5px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(106, 17, 203, 0.08);
+      }
+      
+      /* Bootstrap component examples */
+      .component-demo {
+        border: 1px solid #b2f7ef;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+        background: #f7fff7;
+        box-shadow: 0 5px 15px rgba(56, 239, 125, 0.05);
+      }
+      
+      .component-title {
+        color: #11998e;
+        margin-bottom: 15px;
+        font-weight: 600;
+      }
+      
+      /* Feature grid */
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin: 30px 0;
+      }
+      
+      .feature-item {
+        background: rgba(56, 239, 125, 0.08);
+        padding: 20px;
+        border-radius: 10px;
+        border-left: 4px solid #11998e;
+      }
+      
+      .feature-item h4 {
+        color: #11998e;
+        margin-bottom: 10px;
+      }
+      
+      /* Footer */
+      footer {
+        background: var(--bootstrap-gradient);
+        color: var(--text-light);
+        padding-top: 50px;
+      }
+      
+      .footer-links h6 a {
+        color: #fff;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      
+      .footer-links h6 a::before {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--secondary-gradient);
+        transition: all 0.3s ease;
+      }
+      
+      .footer-links h6 a:hover {
+        color: #ffb347;
+      }
+      
+      .footer-links h6 a:hover::before {
+        width: 100%;
+      }
+      
+      .social-icons a {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        text-align: center;
+        line-height: 40px;
+        color: white;
+        margin: 0 5px;
+        transition: all 0.3s ease;
+      }
+      
+      .social-icons a:hover {
+        background: var(--primary-gradient);
+        color: #fff;
+        transform: translateY(-5px);
+      }
+      
+      .footer-copyright {
+        background: rgba(0, 0, 0, 0.2);
+        padding: 15px 0;
+      }
+      
+      /* Back to top button */
+      .top-move {
+        position: fixed;
+        right: 30px;
+        z-index: 100;
+        text-align: center;
+        bottom: 30px;
+        background: var(--primary-gradient);
+        padding: 0;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        box-shadow: 0 5px 15px rgba(17, 153, 142, 0.12);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .top-move:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+      
+      .top-move a {
+        color: white;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+      }
+      
+      .top-move a i {
+        font-size: 1.5rem;
+      }
+      
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .page-title h1 {
+          font-size: 2.2rem;
+        }
+        
+        .info-card {
+          margin-bottom: 25px;
+        }
+        
+        .top-move {
+          right: 20px;
+          bottom: 20px;
+          height: 45px;
+          width: 45px;
+        }
+        
+        .feature-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+<body>
+  <a id="top"></a>
+<!-- navbar start -->
+ <nav class="navbar navbar-expand-lg fixed-top navbar-dark text-light fs-4">
+   <div class="container-fluid">
+     <a class="navbar-brand fs-4 fw-bold" href="index.html">
+      <!-- <img src="/images/favicon.PNG" alt="Portfolio Logo" width="70px" class="rounded-3"> -->
+      Portfolio</a>
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         <li class="nav-item">
+           <a class="nav-link" aria-current="page" href="index.html">Home</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="fullstack.html">What is full stack?</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="html.html">HTML</a>
+         </li>
+          <li class="nav-item">
+           <a class="nav-link" href="css.html">CSS</a>
+         </li>
+          <li class="nav-item">
+           <a class="nav-link" href="js.html">Javascript</a>
+         </li>
+          <li class="nav-item">
+           <a class="nav-link active" href="bs.html">Bootstrap</a>
+         </li>
+       
+     </div>
+   </div>
+ </nav>
+<!-- navbar end -->
+
+<!-- title start -->
+<div class="container">
+  <div class="page-title">
+    <h1 class="text-center">Bootstrap: Powerful Front-end Framework</h1>
+  </div>
+</div>
+<!-- title end -->
+
+<!--content start-->
+<div class="container content-section">
+  <div class="row">
+    <div class="col-lg-10 mx-auto">
+      <div class="info-card">
+        <h2>What is Bootstrap?</h2>
+        <p>Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development. It contains CSS and JavaScript-based design templates for typography, forms, buttons, navigation, and other interface components, helping developers create responsive websites quickly and efficiently.</p>
+        
+        <h3>Key Features of Bootstrap</h3>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <h4>Responsive Grid System</h4>
+            <p>Bootstrap's 12-column responsive grid system adapts to all screen sizes, from mobile to desktop.</p>
+          </div>
+          
+          <div class="feature-item">
+            <h4>Prebuilt Components</h4>
+            <p>Ready-to-use components like navbars, modals, carousels, and cards speed up development.</p>
+          </div>
+          
+          <div class="feature-item">
+            <h4>Customizable</h4>
+            <p>Easily customize Bootstrap with Sass variables and mixins to match your design needs.</p>
+          </div>
+          
+          <div class="feature-item">
+            <h4>Cross-browser Compatibility</h4>
+            <p>Works consistently across all modern browsers with extensive browser compatibility.</p>
+          </div>
+        </div>
+        
+        <h3>Bootstrap Grid System</h3>
+        <p>Bootstrap's grid system uses a series of containers, rows, and columns to layout and align content. It's built with flexbox and is fully responsive.</p>
+        
+        <div class="component-demo">
+          <h4 class="component-title">Basic Grid Example</h4>
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-4 bg-light p-3 border">
+                <p>.col-sm-4</p>
+              </div>
+              <div class="col-sm-4 bg-light p-3 border">
+                <p>.col-sm-4</p>
+              </div>
+              <div class="col-sm-4 bg-light p-3 border">
+                <p>.col-sm-4</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <h3>Popular Bootstrap Components</h3>
+        <p>Bootstrap includes dozens of components that can be easily implemented:</p>
+        
+        <div class="row mt-4">
+          <div class="col-md-6">
+            <div class="info-card">
+              <h4>Navigation</h4>
+              <ul>
+                <li>Navbars</li>
+                <li>Navs & Tabs</li>
+                <li>Breadcrumbs</li>
+                <li>Pagination</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="info-card">
+              <h4>Content</h4>
+              <ul>
+                <li>Cards</li>
+                <li>Carousels</li>
+                <li>Modals</li>
+                <li>Collapse</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="info-card">
+              <h4>Forms</h4>
+              <ul>
+                <li>Form controls</li>
+                <li>Input groups</li>
+                <li>Validation</li>
+                <li>Custom forms</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="col-md-6">
+            <div class="info-card">
+              <h4>Utilities</h4>
+              <ul>
+                <li>Spacing utilities</li>
+                <li>Color utilities</li>
+                <li>Flex utilities</li>
+                <li>Display utilities</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <h3>Why Use Bootstrap?</h3>
+        <ul>
+          <li><strong>Rapid Development:</strong> Pre-designed components speed up the development process</li>
+          <li><strong>Responsive Design:</strong> Built-in responsiveness works across all device sizes</li>
+          <li><strong>Consistency:</strong> Provides a consistent design language throughout your project</li>
+          <li><strong>Customizable:</strong> Easy to customize with Sass variables and theming</li>
+          <li><strong>Community Support:</strong> Large community with extensive documentation and resources</li>
+          <li><strong>Cross-browser Compatibility:</strong> Works consistently across all modern browsers</li>
+        </ul>
+        
+        <h3>Getting Started with Bootstrap</h3>
+        <p>To start using Bootstrap, you can include it via CDN or download the files:</p>
+        
+        <div class="component-demo">
+          <h4 class="component-title">CDN Inclusion</h4>
+          <pre><code>&lt;!-- CSS --&gt;
+           &lt;link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"&gt;
+
+          &lt;!-- JavaScript --&gt;
+          &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"&gt;&lt;/script&gt;</code></pre>
+        </div>
+        
+        <h3>Bootstrap Version History</h3>
+        <ul>
+          <li><strong>Bootstrap 3:</strong> Introduced mobile-first approach</li>
+          <li><strong>Bootstrap 4:</strong> Major rewrite with Sass, flexbox, and new components</li>
+          <li><strong>Bootstrap 5:</strong> Latest version with no jQuery dependency, new utilities, and improved customization</li>
+        </ul>
+        
+        <h3>Best Practices</h3>
+        <ol>
+          <li>Use the grid system for responsive layouts</li>
+          <li>Customize with Sass variables instead of overriding CSS</li>
+          <li>Keep JavaScript components initialized properly</li>
+          <li>Use utility classes for quick styling</li>
+          <li>Follow accessibility guidelines when using components</li>
+          <li>Optimize by importing only the components you need</li>
+        </ol>
+        
+        <div class="text-center mt-5">
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--content end-->
+
+<!-- Footer -->
+<footer class="page-footer font-small indigo">
+  <!-- Footer Links -->
+  <div class="container-fluid">
+
+    <!-- Grid row-->
+    <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3 footer-links">
+        <h6 class="text-uppercase font-weight-bold">
+          <a href="index.html">Home</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3 footer-links">
+        <h6 class="text-uppercase font-weight-bold">
+          <a href="fullstack.html">What is full stack?</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3 footer-links">
+        <h6 class="text-uppercase font-weight-bold">
+          <a href="css.html">CSS</a>
+        </h6>
+      </div>
+      
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3 footer-links">
+        <h6 class="text-uppercase font-weight-bold">
+          <a href="bs.html">Bootstrap</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-2 mb-3 footer-links">
+        <h6 class="text-uppercase font-weight-bold">
+          <a href="js.html">Javascript</a>
+        </h6>
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+    <hr class="rgba-white-light" style="margin: 0 15%;">
+
+    <!-- Grid row-->
+    <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+
+      <!-- Grid column -->
+      <div class="col-md-8 col-12 mt-5">
+        <p style="line-height: 1.7rem">
+          All &copy; rights reserved @ 2025 | Created with passion for web development education
+        </p>
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row-->
+    <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+
+    <!-- Grid row-->
+    <div class="row pb-3">
+
+      <!-- Grid column -->
+      <div class="col-md-12">
+
+        <div class="mb-5 text-center social-icons">
+
+          <!-- Facebook -->
+          <a class="fb-ic" href="#">
+            <i class="fab fa-facebook-f fa-lg white-text mr-4"> </i>
+          </a>
+          <!-- Twitter -->
+          <a class="tw-ic" href="#">
+            <i class="fab fa-twitter fa-lg white-text mr-4"> </i>
+          </a>
+          
+          <!--Linkedin -->
+          <a class="li-ic" href="#">
+            <i class="fab fa-linkedin-in fa-lg white-text mr-4"> </i>
+          </a>
+
+          <!--Instagram-->
+          <a class="ins-ic" href="#">
+            <i class="fab fa-instagram fa-lg white-text mr-4"> </i>
+          </a>
+         
+          <!--whatsapp-->
+          <a class="ins-ic" href="https://wa.me/9779846164663">
+            <i class="fab fa-whatsapp fa-lg white-text mr-4"> </i>
+          </a>
+        </div>
+
+      </div>
+      <!-- Grid column -->
+
+   
+
+  </div>
+  <!-- Footer Links -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">Powered By:
+    <a href="#"> Anish </a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+<!-- Back to top button -->
+<div class="top-move" id="move-top">
+  <a href="#top" id="move-top-link"><i class="fas fa-arrow-up"></i></a>
+</div>
+
+
+
+</body>
+<script>
+// Show/hide move-to-top button
+window.addEventListener('scroll', function() {
+  var btn = document.getElementById('move-top');
+  if (window.scrollY > 150) {
+    btn.classList.remove('d-none');
+    btn.classList.add('d-flex');
+  } else {
+    btn.classList.remove('d-flex');
+    btn.classList.add('d-none');
+  }
+});
+// Smooth scroll to top
+document.getElementById('move-top-link').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.getElementById('top').scrollIntoView({behavior: 'smooth'});
+});
+</script>
+<!-- JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+</body>
+</html>
